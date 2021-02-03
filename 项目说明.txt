@@ -1,0 +1,92 @@
+本项目为北现租赁
+
+项目文件在src>components
+About.vue  关于北现租赁
+Contact.vue  联系我们
+Dealer.vue 查找经销商
+Home.vue 首页
+Jisuanqi.vue 计算器
+NewPlay.vue金融产品
+Privacy.vue  隐私政策
+statement.vue 版权声明
+
+Nav.vue  导航
+Header.vue 顶部
+Footer.vue 底部
+
+项目路由src>router>index.js
+[
+    {
+      path: '/',
+      name: 'index',
+      component: resolve=>(require(["@/components/Home"],resolve)),
+      meta:{
+        sel:0
+      }
+    },{
+    	path:'/jsq',
+    	name:'计算器',
+    	component:resolve=>(require(["@/components/Jisuanqi"],resolve)),
+      meta:{
+        sel:1
+      }
+    },{
+    	path:'/newplay',
+    	name:'限购车新方案',
+    	component:resolve=>(require(["@/components/NewPlay"],resolve)),
+      meta:{
+        sel:2
+      }
+    },{
+    	path:'/about',
+    	name:'关于北现租赁',
+    	component:resolve=>(require(["@/components/About"],resolve)),
+      meta:{
+        sel:4
+      }
+    },{
+    	path:'/contact',
+    	name:'联系我们',
+    	component:resolve=>(require(["@/components/Contact"],resolve)),
+      meta:{
+        sel:5
+      }
+    },{
+    	path:'/dealer',
+    	name:'经销商',
+    	component:resolve=>(require(["@/components/Dealer"],resolve)),
+      meta:{
+        sel:3
+      }
+    },{
+      path:'/emp',
+      name:'空白页',
+      component:resolve=>(require(["@/components/emp"],resolve)),
+      meta:{
+        sel:7
+      }
+    },{
+      path:'/statement',
+      name:'版权声明',
+      component:resolve=>(require(["@/components/statement"],resolve)),
+      meta:{
+        sel:8
+      }
+    },{
+      path:'/privacy',
+      name:'隐私政策',
+      component:resolve=>(require(["@/components/Privacy"],resolve)),
+      meta:{
+        sel:8
+      }
+    }
+  ]
+
+//项目运行，
+----cd 文件夹
+-----npm install
+-----npm run dev
+启动成功后可在本地查看
+
+正式环境需编译  npm run build
+文件夹dist中的文件上传到服务器
