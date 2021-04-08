@@ -1,7 +1,7 @@
 <template>
-  <div id="app"  :style="{height:wh+'px'} " >
-    <Header/>
-    <router-view  :style="{'height':wh+'px'} "></router-view>
+  <div id="app">
+    <Header v-if="this.$route.name!=='classHome'&&this.$route.name!=='imgs'"></header>
+    <router-view/>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
   render:function(){
   },
   beforeRouteEnter(to,from,next){
-      
+
   },
   methods:{
     getPath:function(){
@@ -37,7 +37,7 @@ export default {
 
 <style>
 html{ font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;font-size:6.2vw;min-height:100%;-ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
-body { margin: 0; font-size: .6rem; line-height: 1.5; color: #666; background:#fff;height: 100%; overflow-x: hidden; -webkit-overflow-scrolling: touch;}
+body { margin: 0; font-size: .6rem; line-height: 1.5; color: #666; background:#fff;overflow-x: hidden; -webkit-overflow-scrolling: touch;}
 *{-webkit-overflow-scrolling: touch;}
 
 a { background: transparent; text-decoration: none; -webkit-tap-highlight-color: transparent; color: #000; }
@@ -67,16 +67,15 @@ input,textarea,a{outline: none;}
 input::-moz-placeholder, textarea::-moz-placeholder { color: #cccccc; }
 input:-ms-input-placeholder, textarea:-ms-input-placeholder { color: #cccccc; }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { color: #cccccc; }
-body{overflow:hidden;}
+body{}
 #app {
   font-family: huawen,"微软雅黑",'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000;
-  min-height:100%;
   margin:0 auto;
   position:relative;
-  overflow:hidden;
+  overflow:auto;
   width:100%;
 }
 #Header{z-index:9999;}
@@ -106,14 +105,15 @@ body{overflow:hidden;}
 .order_3{-webkit-box-ordinal-group: 3;-ms-flex-order: 3;-webkit-order: 3;order: 3;}
 .boxSizing{box-sizing:border-box; -moz-box-sizing:border-box;-webkit-box-sizing:border-box;}
 .tc{text-align:center;}
+.wrap{padding-top:2rem;box-sizing:border-box;}
 @media screen and (min-width: 750px) {
     html {
        font-size:40px;
     }
     .btn{font-size:16px !important;}
     h1{font-size:.7rem;}
+    .wrap{}
 }
-.wrap{}
 .vue-slider-marks{}
 .btn{font-size:.6rem;display:inline-block;background:#143269;color:#fff;border-radius:1rem;padding:.25rem 1.2rem;}
 .text-tip {
@@ -271,6 +271,27 @@ body{overflow:hidden;}
   40% {
     opacity: .5;
   }
+}
+
+.viewer-toolbar > ul > li{width:1.75rem;height:1.75rem;text-align:center;}
+
+.viewer-toolbar > ul > li::before{display:inline-block;margin-top:.45rem;}
+.viewer-toolbar > ul > li + li{margin-left:5px;}
+.viewer-flip-horizontal,.viewer-flip-vertical,.viewer-rotate-right,.viewer-rotate-left,.viewer-play{display:none;}
+.viewer-title{display:none;}
+@media only screen  and (orientation:landscape) {
+  .viewer-toolbar > ul > li{width:1.1rem;height:1.1rem;}
+  .viewer-toolbar > ul > li::before{margin-top:.35rem;}
+}
+
+@media screen and (min-width: 750px) {
+  
+  h1{font-size:20px;}
+  .wrap{width:750px;margin:0 auto;}
+
+
+  .viewer-toolbar > ul > li{width:48px;height:48px;}
+  .viewer-toolbar > ul > li::before{margin-top:13px;}
 }
 </style>
 
